@@ -12,7 +12,8 @@
     <h1 class="judul">STARBUCKS</h1>
     <div class="form-class">
         <h3>Add Menu</h3><br><br>
-        <form action="add.php" method="post">
+        <p>Tanggal input : <?=date("d-m-Y")?></p><br>
+        <form action="add.php" method="post" enctype="multipart/form-data">
             <label for="">Nama Menu</label><br>
             <input type="text" name="nama" class="form-text"><br>
 
@@ -25,12 +26,10 @@
             <label for="">Venti</label><br>
             <input type="text" name="venti" class="form-text"><br>
 
-            <label for="nama_gambar">Nama File</label><br>
-            <input type="text" name="nama_gambar" class="form-text">
-            
             <label for="">Gambar</label><br>
             <input type="file" name="gambar"><br><br>
 
+            <input type="hidden" name="input" value=<?= date("d-m-Y")?>>
             <input type="submit" name="submit" value="Kirim" class="btn-submit">
         </form>
     </div>

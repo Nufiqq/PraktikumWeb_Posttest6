@@ -7,10 +7,11 @@ if(isset($_GET['id'])){
     $tall = $result['tall'];
     $grande = $result['grande'];
     $venti = $result['venti'];
+    $gambar = $result['gambar'];
 }
 
 if(isset($_POST['submit'])){
-    $query = mysqli_query($db,"UPDATE menu SET nama_menu='$_POST[nama]',tall='$_POST[tall]',grande='$_POST[grande]',venti='$_POST[venti]' WHERE id=$_GET[id]");
+    $query = mysqli_query($db,"UPDATE menu SET nama_menu='$_POST[nama]',tall='$_POST[tall]',grande='$_POST[grande]',venti='$_POST[venti]',gambar='$_POST[gambar]' WHERE id=$_GET[id]");
     if($query){
         header("Location:admin.php");
     } else {
@@ -45,6 +46,9 @@ if(isset($_POST['submit'])){
 
             <label for="">Venti</label><br>
             <input type="text" name="venti" class="form-text" value='<?=$venti?>'><br>
+
+            <label for="">Gambar</label><br>
+            <input type="file" name="gambar"><br><br>
         
             <input type="submit" name="submit" value="Kirim" class="btn-submit">
         </form>

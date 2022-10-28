@@ -13,12 +13,12 @@
     <h1 class="judul">STARBUCKS</h1>
     <div class="list-table center" style="overflow-x: auto;">
         <table>
+            <a href="formulir.php" class="tambah">Add Menu</a>
             <thead>
                 <tr>
                     <th colspan="8" class="thead">
                         <h3 class="center">List Menu</h3>
                     </th>
-                        <a href="formulir.php" class="tambah">Add Menu</a>
                 </tr>
                 <tr>
                     <th>ID</th>
@@ -32,10 +32,11 @@
             </thead>
             <tbody>
                 <?php
-                require "config.php";
-                $query = mysqli_query($db, "SELECT * FROM menu");
-                $i = 1;
-                while ($row = mysqli_fetch_assoc($query)) {
+                    require "config.php";
+                    date_default_timezone_set("Asia/Makassar");
+                    $query = mysqli_query($db, "SELECT * FROM menu");
+                    $i = 1;
+                    while ($row = mysqli_fetch_assoc($query)) {
                 ?>
                     <tr>
                         <td><?= $i ?></td>
@@ -43,7 +44,7 @@
                         <td><?=$row['tall']?></td>
                         <td><?=$row['grande']?></td>
                         <td><?=$row['venti']?></td>
-                        <td><?=$row['gambar']?></td>
+                        <td><img src="Images/<?=$row['gambar']?>" alt="" width="100px"></td>
                         <td class="edit">
                             <a href="edit.php?id=<?=$row['id']?>">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 16 16">
